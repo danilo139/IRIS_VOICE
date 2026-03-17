@@ -1,0 +1,7 @@
+streamlit>=1.28
+elevenlabs
+python-dotenv
+st-gsheets-connection
+plotly
+pydub
+requests
