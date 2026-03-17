@@ -4,4 +4,6 @@ python-dotenv
 st-gsheets-connection
 plotly
 pydub
+pyaudioop
 requests
+
