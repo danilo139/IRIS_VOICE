@@ -71,7 +71,7 @@ def _get_gsheets_conn():
     return st.connection("gsheets", type=GSheetsConnection)
 
 
-def _log_to_gsheets(username: str, prompt_text: str, voice_name: str = "Laila"):
+def _log_to_gsheets(username: str, prompt_text: str, voice_name: str = "Layla"):
     """Append a log row to the Google Sheet."""
     try:
         conn = _get_gsheets_conn()
@@ -101,10 +101,10 @@ def _log_to_gsheets(username: str, prompt_text: str, voice_name: str = "Laila"):
 
 # ── Voice catalogue (extensible) ─────────────────────────────
 # Add more voices here as needed. The key is the display name,
-# the value is the ElevenLabs voice ID read from secrets.
+# the value is the ElevenLabs voice ID.
 VOICES: dict[str, str] = {
-    "Laila": st.secrets["elevenlabs"]["voice_id"],
-    # "NewModel": st.secrets["elevenlabs"]["voice_id_2"],  # example
+    "Layla": "3Sl1cTs9wQnylOVqg5cO",
+    "Paula": "CTfxK2mrqXgEt3Wh7ltC",
 }
 
 
@@ -392,7 +392,7 @@ def _tab_history():
                 f"""
                 <div class='history-card'>
                     <h4>#{len(history) - idx + 1} — {item['timestamp']}</h4>
-                    <p>👤 <strong>{item['user']}</strong> · 🎙️ {item.get('voice', 'Laila')}</p>
+                    <p>👤 <strong>{item['user']}</strong> · 🎙️ {item.get('voice', 'Layla')}</p>
                     <p>💬 {item['prompt'][:120]}{'…' if len(item['prompt']) > 120 else ''}</p>
                 </div>
                 """,
